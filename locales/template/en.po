@@ -742,6 +742,9 @@ msgstr "Copy link"
 msgid "Edit Metadata"
 msgstr "Edit Metadata"
 
+msgid "Mark as Completed"
+msgstr "Mark as Completed"
+
 msgid "Delete"
 msgstr "Delete"
 

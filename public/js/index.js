@@ -779,6 +779,22 @@ Index.handleContextMenu = function (option, id) {
         case "read":
             LRR.openInNewTab(new LRR.apiURL(`/reader?id=${id}`));
             break;
+        case "mark_complete":
+            Server.callAPI(`/api/archives/${id}/metadata`, "GET", null, I18N.ServerInfoError,
+                (data) => {
+                    let { pagecount } = data;
+                    Server.callAPI(`/api/archives/${id}/isnew`, "DELETE", null, I18N.ReaderErrorClearingNew, (res) => {
+                        Server.callAPI(`/api/archives/${id}/progress/${pagecount}`, "PUT", null, I18N.ReaderErrorProgress, (res) => {
+                            LRR.toast({
+                                heading: "Manga complete",
+                                icon: "info",
+                                hideAfter: 3000,
+                            });
+                        });
+                    });
+                }
+            );
+            break;
         case "download":
             LRR.openInNewTab(new LRR.apiURL(`/api/archives/${id}/download`));
             break;

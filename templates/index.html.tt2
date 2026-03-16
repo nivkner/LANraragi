@@ -228,6 +228,7 @@
 							"copy link": { name: "[% c.lh('Copy link') %]", icon: "fas fa-link" },
 							[% IF userlogged %]
 							"sep1": "---------",
+							"mark_complete": { name: "[% c.lh('Mark as Completed') %]", icon: "fas fa-check" },
 							"edit": { name: "[% c.lh('Edit Metadata') %]", icon: "fas fa-pencil-alt" },
 							"delete": { name: "[% c.lh('Delete') %]", icon: "fas fa-trash-alt" },
 							"rating": {
